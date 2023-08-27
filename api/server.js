@@ -28,10 +28,13 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage }); //creates an instance of the multer middleware with the storage configuration.
 
 mongoose
-  .connect("mongodb://localhost:27017/MERN", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }) //This line establishes a connection to the MongoDB database located at mongodb://localhost:27017/MERN. The { useNewUrlParser: true, useUnifiedTopology: true } options are passed to ensure compatibility with the latest version of MongoDB.
+  .connect(
+    "mongodb+srv://myBlog:tI9eJUtvW5FDi9GH@cluster0.zndg2k6.mongodb.net/?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  ) //This line establishes a connection to the MongoDB database located at mongodb://localhost:27017/MERN. The { useNewUrlParser: true, useUnifiedTopology: true } options are passed to ensure compatibility with the latest version of MongoDB.
 
   .then(() => {
     console.log("CONNECTED TO DATABASE");
